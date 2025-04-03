@@ -1,6 +1,6 @@
 
 
-```markdown
+```
 # Parameter Settings and FFN Output Computation
 
 ## Introduction
