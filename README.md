@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Parameter Settings and FFN Output Computation
 
 ## Introduction
@@ -8,7 +8,8 @@ This document presents a Python code snippet that demonstrates the process of se
 
 ## Code Explanation
 
-### Overall Code
+### Example Code
+
 ```python
 import torch
 
@@ -72,5 +73,5 @@ We generate random input data with a shape of `(batch_size, n)` to simulate the 
 Finally, we compute the output of the FFN layer using the `compute_ffn_output` function, which is assumed to be defined elsewhere. We then print the shape of the output, which is expected to be `torch.Size([32, 100])`.
 
 Note: The functions `transform_moe_to_mole` and `compute_ffn_output` are not defined in this code snippet. You need to define them according to your specific requirements.
-```
+
 
