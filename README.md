@@ -1,7 +1,7 @@
 # Mixture of Latent Experts (MoLE)
 
 ## Introduction
-This code is a study and code reproduction of the paper "Beyond Standard MoE: Mixture of Latent Experts for Resource-Efficient Language Models". The link to the paper is: https://arxiv.org/pdf/2503.23100.
+This code is a algorithm study and code reproduction of the paper "Beyond Standard MoE: Mixture of Latent Experts for Resource-Efficient Language Models". The link to the paper is: https://arxiv.org/pdf/2503.23100.
 The code content is mainly divided into the following parts:
 1. Establish a mathematical framework for converting a pre-trained Mixture of Experts (MoE) model into a MoLE architecture. Solve the optimization problem of the conversion through Singular Value Decomposition (SVD) to obtain the theoretically optimal solution.
 2. Introduce the MoLE architecture, and decompose the expert operations into two parts: the shared low-dimensional latent space projection and the expert-specific transformation. Through matrix decomposition, decompose the expert weight matrix \(W^{i}\) into \(A^{i}B\), where \(B\) is the shared projection matrix and \(A^{i}\) is the expert-specific transformation matrix.
