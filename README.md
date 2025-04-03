@@ -1,15 +1,15 @@
-
-
-
-# Parameter Settings and FFN Output Computation
+# Mixture of Latent Experts (MoLE)
 
 ## Introduction
-This document presents a Python code snippet that demonstrates the process of setting parameters for a Feed - Forward Network (FFN) and computing its output. It also includes the conversion from Mixture of Experts (MoE) to Mixture of Low - rank Experts (MoLE) parameters.
+This code is a study and code reproduction of the paper "Beyond Standard MoE: Mixture of Latent Experts for Resource-Efficient Language Models". The link to the paper is: https://arxiv.org/pdf/2503.23100.
+The code content is mainly divided into the following parts:
+1. Establish a mathematical framework for converting a pre-trained Mixture of Experts (MoE) model into a MoLE architecture. Solve the optimization problem of the conversion through Singular Value Decomposition (SVD) to obtain the theoretically optimal solution.
+2. Introduce the MoLE architecture, and decompose the expert operations into two parts: the shared low-dimensional latent space projection and the expert-specific transformation. Through matrix decomposition, decompose the expert weight matrix \(W^{i}\) into \(A^{i}B\), where \(B\) is the shared projection matrix and \(A^{i}\) is the expert-specific transformation matrix.
+3. Retain the "down operator", and only convert the "up operator" and the "gating operator" from the Mixture of Experts (MoE) structure to the Mixture of Latent Experts (MoLE) structure.
 
 ## Code Explanation
 
 ### Example Code
-
 ```python
 import torch
 
@@ -56,22 +56,4 @@ In this section, we define several important parameters:
 - `N`: The number of experts in the Mixture of Experts model.
 - `k`: The group size.
 - `target_rank`: The target rank for low - rank approximation.
-
-### Initializing MoE Expert Weights
-Here, we initialize the weights for each expert in the MoE model. Each weight matrix has a shape of `(n, n)`, and there are `N` such matrices.
-
-### Converting to MoLE Parameters
-This part of the code converts the MoE parameters to MoLE parameters. We compute two sets of matrices: one for the up - projection and another for the gating mechanism. The `transform_moe_to_mole` function is assumed to be defined elsewhere.
-
-### Initializing the Down - Projection Matrix
-We initialize the down - projection matrix with a shape of `(m, n)`.
-
-### Generating Random Input Data
-We generate random input data with a shape of `(batch_size, n)` to simulate the input to the FFN layer.
-
-### Computing the Output of the FFN Layer
-Finally, we compute the output of the FFN layer using the `compute_ffn_output` function, which is assumed to be defined elsewhere. We then print the shape of the output, which is expected to be `torch.Size([32, 100])`.
-
-Note: The functions `transform_moe_to_mole` and `compute_ffn_output` are not defined in this code snippet. You need to define them according to your specific requirements.
-
 
