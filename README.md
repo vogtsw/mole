@@ -1,10 +1,10 @@
-以下是包含上述代码并带有说明的英文 Markdown 文件内容：
+
 
 ```markdown
 # Parameter Settings and FFN Output Computation
 
 ## Introduction
-This document presents a Python code snippet that demonstrates the process of setting parameters for a Feed - Forward Network (FFN) and computing its output. It also includes the conversion from Mixture of Experts (MoE) to Mixture of Low - rank Experts (MoLE) parameters.
+This document presents a Python code snippet that demonstrates the process of setting parameters for a Feed - Forward Network (FFN) and computing its output. It also includes the conversion from(MoE) to (MoLE) parameters.
 
 ## Code Explanation
 
