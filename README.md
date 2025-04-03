@@ -13,38 +13,26 @@ The code content is mainly divided into the following parts:
 ```python
 import torch
 
-# Parameter settings
-# Batch size of the input data.
+
 batch_size = 32
-# Dimension of the high-dimensional space.
 n = 100
-# Dimension of the low-dimensional space.
 m = 50
-# Number of experts.
 N = 8
-# Group size.
 k = 2
-# Target rank for low-rank approximation.
 target_rank = 30
 
-# Initialize MoE expert weights, each matrix with shape (n, n).
+
 W_list = [torch.randn(n, n) for _ in range(N)]
 
-# Convert to MoLE parameters.
-# Compute the list of experts' specific up-projection transformation matrices and the list of shared up-projection latent mapping matrices.
 A_up_list, B_up = transform_moe_to_mole(W_list, target_rank, m, k, N)
-# Similarly, compute the matrices related to gating.
 A_gate_list, B_gate = transform_moe_to_mole(W_list, target_rank, m, k, N)
-
-# Initialize the down-projection matrix with shape (m, n).
 W_down = torch.randn(m, n)
 
-# Generate random input data with shape (batch_size, n).
+
 x = torch.randn(batch_size, n)
 
-# Compute the output of the FFN layer.
+
 output = compute_ffn_output(x, B_up, B_gate, W_down, A_up_list, A_gate_list, k, N)
-# Print the shape of the output, which should be torch.Size([32, 100]).
 print(output.shape)
 ```
 
